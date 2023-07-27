@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Pinterest</title>
+{% endblock title %}
+
+
+{% block style %}
+    <style>
+    .navbar{
+        box-shadow: none !important;
+    }
+    </style>
+{% endblock style %}
+    
+
+<!-- <img src="{% static 'img/pinterest_logo.png' %}" alt=""> -->
+{% block main %}
+
+<!-- ! Navbar start -->
+<nav class="navbar navbar-expand-lg border-0">
+    <div class="container-fluid mx-3 my-2">
+        <a class="navbar-brand fw-medium" href="{% url 'index' %}" style="color: #e71334;">
+            <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34" class="d-inline-block align-text-center">
+            Pinterest
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-medium text-dark " aria-current="page" href="#">Hakkında</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-medium text-dark" href="#">İş Dünyası</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link fw-medium text-dark" href="#">Blog</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-danger" href="#">Oturum Aç</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-light" href="#">Kaydol</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- ! Navbar end -->
+
+<!-- ! carousel start -->
+
+<!-- ! carousel end -->
+
+
+
+
+{% endblock main %}
+
+
+
+
+{% block js %}
+{% endblock js %}
+
