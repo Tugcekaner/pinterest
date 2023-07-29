@@ -1013,11 +1013,30 @@
     background-color: #FFFD92;
     height: 110vh;
   }
-  .section2{
+
+  .section2 {
     background-color: #DAFFF6;
     height: 100vh;
     color: #016B6C;
   }
+
+  .section3 {
+    background-color: #FFE2EB;
+    height: 100vh;
+  }
+
+  .section4 {
+    background-image: url("{% static 'img/001.png' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-size: .8rem;
+  }
+
+  .section4 ul li a:hover{
+    text-decoration: underline !important;
+  }
+
 </style>
 {% endblock style %}
 
@@ -1043,7 +1062,7 @@
           <a class="nav-link fw-medium text-dark " aria-current="page" href="#">Hakkında</a>
         </li>
         <li class="nav-item ms-3">
-          <a class="nav-link fw-medium text-dark" href="#">İş Dünyası</a>
+          <a class="nav-link fw-medium text-dark" href="https://business.pinterest.com/tr/" target="_blank">İş Dünyası</a>
         </li>
         <li class="nav-item ms-3">
           <a class="nav-link fw-medium text-dark" href="#">Blog</a>
@@ -1312,15 +1331,19 @@
   <div class="row d-flex justify-content-evenly" id="section1">
     <div class="col-5 section1_left d-flex justify-content-center align-items-center my-auto" style="height: 100vh;">
       <div>
-        <img src="{% static 'img/section1.png' %}" alt="">
+        <a href="#">
+          <img src="{% static 'img/section1.png' %}" alt="">
+        </a>
       </div>
     </div>
 
-    <div class="col-5 section1_right d-flex justify-content-center align-items-center text-center my-auto" style="height: 100vh;">
+    <div class="col-5 section1_right d-flex justify-content-center align-items-center text-center my-auto"
+      style="height: 100vh;">
       <div>
         <h1 class="fw-bold text-danger fa-4x">Bir fikir arayın</h1>
-        <p class="text-danger fa-2x">Şimdi ne denemek istersiniz? "Kolay tavuk yemeği" gibi ilgilendiğiniz bir şey düşünün ve neler bulacağınıza bakın.</p>
-        <button class="btn btn-danger" style="color: #FFFD92;" >Keşfet</button>
+        <p class="text-danger fa-2x">Şimdi ne denemek istersiniz? "Kolay tavuk yemeği" gibi ilgilendiğiniz bir şey
+          düşünün ve neler bulacağınıza bakın.</p>
+        <button class="rounded-2" style="color: #FFFD92; background-color: #e71334;">Keşfet</button>
       </div>
     </div>
   </div>
@@ -1334,16 +1357,67 @@
       <div class="text-center">
         <h1 class="fw-bold fa-4x">Beğendiğiniz fikirleri kaydedin</h1>
         <p class="fa-2x">En beğendiğiniz fikirleri daha sonra dönmek için kaydedin.</p>
-        <button class="btn" style="color: #DAFFF6; background-color: #016B6C;">Keşfet</button>
+        <button class="rounded-2" style="color: #DAFFF6; background-color: #016B6C;">Keşfet</button>
       </div>
     </div>
 
     <div class="col-5 d-flex justify-content-center align-items-center section2_right" style="height: 100vh;">
+      <a href="#">
+        <img src="{% static 'img/section2.png' %}" alt="">
+      </a>
     </div>
-
   </div>
 </div>
 <!-- ! section 2 end  -->
+
+<!-- ! section 3 start -->
+<div class="container-fluid section3">
+  <div class="row" id="section3">
+    <div class="col-6 section1_left p-0" style="height: 100vh;">
+      <a href="#">
+        <img src="{% static 'img/section3.png' %}" alt="" style="height: 100vh; width: 100%;">
+      </a>
+    </div>
+
+    <div class="col-6 section1_right d-flex justify-content-center align-items-center text-center my-auto"
+      style="height: 100vh;">
+      <div class="col-8">
+        <h1 class="fw-bold text-danger fa-4x">Gör, üret, dene, yap</h1>
+        <p class="text-danger fa-2x">Pinterest'in en iyi yanı dünyanın her yerindeki kullanıcılardan yeni şeyler ve
+          fikirler keşfetmek.</p>
+        <button class="rounded-2" style="color: #FFE2EB; background-color: #e71334;">Keşfet</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ! section 3 end -->
+
+<!-- ! section 4 start -->
+<div class="container-fluid section4">
+  <div class="row justify-content-evenly">
+    <div class="col-4 d-flex h-100 justify-content-center align-items-center text-center text-white">
+      <h1 class="fa-4x text-start ms-5" style="margin-top: 30%;">Fikirlerinizi bulmak için kaydolun.</h1>
+    </div>
+    <div class="col-6 bg-light" style="height: 100vh;">
+        <h1>login form gelecek</h1>
+    </div>
+    <footer style="width: 100%; background-color: white; height: 5vh;" class="p-1">
+      <ul class="d-flex justify-content-center">
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Hizmet Şartları</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Gizlilik Politikası</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Yardım</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">iPhone Uygulaması </a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Android Uygulaması</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Kullanıcılar</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Koleksiyon</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Alışveriş</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Bugün</a></li>
+        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Keşfet</a></li>
+      </ul>
+    </footer>
+  </div>
+</div>
+<!-- ! section 4 end -->
 
 {% endblock main %}
 
