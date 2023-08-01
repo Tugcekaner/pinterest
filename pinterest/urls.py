@@ -20,28 +20,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from pins.views import *
 from user.views import *
-from business.views import *
-from help.views import *
-from newsroom.views import *
-from policy.views import *
 
 urlpatterns = [
     # pins
     path('',indexPage, name='index'),
 
     # user
-
-
-    # business
-
-
-    # help
-
-
-    # newsroom
-
-
-    # policy
 
 
 

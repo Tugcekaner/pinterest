@@ -13,7 +13,10 @@
     list-style: none;
   }
 
-  .section1, .section2, .section3, .section4 .explain {
+  .section1,
+  .section2,
+  .section3,
+  .section4 .explain {
     font-size: 28px;
   }
 
@@ -1044,6 +1047,27 @@
   .section4 ul li a:hover {
     text-decoration: underline !important;
   }
+
+  /* Grid container */
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    /* Sütun ve satırlar arasındaki boşluk */
+  }
+
+  /* Item'lar */
+  .gallery-item {
+    width: 100%;
+  }
+
+  /* Item içerikleri (örneğin, resimler) */
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    height: auto;
+}
 </style>
 {% endblock style %}
 
@@ -1234,391 +1258,446 @@
 </nav>
 <!-- ! Navbar end -->
 
-<!-- ! carousel start -->
-<div class="container-fluid p-0">
-  <div class="row m-0">
-    <div class="col-12">
-      <div class="carousel-pin" style="height: 82vh; overflow: hidden;">
-        <div class="heading mt-5">
-          <span class="text">Sıradaki fikri bulun</span>
-          <div class="wrapper">
-            <div class="offset">
-              <h2 class="text t1 animate-before">Giyim fikirleri</h2>
-            </div>
-            <div class="offset">
-              <h2 class="text t2 animate-before">Aktivite fikirleri</h2>
-            </div>
-            <div class="offset">
-              <h2 class="text t3 animate-before">Yemek fikirleri</h2>
-            </div>
-            <div class="offset">
-              <h2 class="text t4 animate-before">Kendin yap projeleri</h2>
-            </div>
-          </div>
-        </div>
-        <div class="grid-container">
-          <div class="grid">
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
+<!-- ? kullanıcı girişli değilse -->
+<span id="usernone" style="display: none;">
+  <!-- ! carousel start -->
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <div class="col-12">
+        <div class="carousel-pin" style="height: 82vh; overflow: hidden;">
+          <div class="heading mt-5">
+            <span class="text">Sıradaki fikri bulun</span>
+            <div class="wrapper">
+              <div class="offset">
+                <h2 class="text t1 animate-before">Giyim fikirleri</h2>
+              </div>
+              <div class="offset">
+                <h2 class="text t2 animate-before">Aktivite fikirleri</h2>
+              </div>
+              <div class="offset">
+                <h2 class="text t3 animate-before">Yemek fikirleri</h2>
+              </div>
+              <div class="offset">
+                <h2 class="text t4 animate-before">Kendin yap projeleri</h2>
+              </div>
             </div>
           </div>
-          <div class="grid">
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
+          <div class="grid-container">
+            <div class="grid">
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
             </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
+            <div class="grid">
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
             </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
+            <div class="grid">
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
             </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-          </div>
-          <div class="grid">
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-          </div>
-          <div class="grid">
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
-            <div class="column animate-before">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
+            <div class="grid">
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
+              <div class="column animate-before">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- ! carousel end -->
+  <!-- ! carousel end -->
 
-<!-- ! section 1 start -->
-<div class="container-fluid section1">
-  <div class="row d-flex text-center p-2 mt-1">
-    <h5>
-      <a href="#section1" style="text-decoration: none; color: black;font-size: .9rem;">
-        Bu, şu şekilde işler <svg class="gUZ R19 U9O kVc" height="12" width="12" viewBox="0 0 24 24"
-          aria-label="arrow down icon" role="img">
-          <path
-            d="M12 19.5.66 8.29c-.88-.86-.88-2.27 0-3.14.88-.87 2.3-.87 3.18 0L12 13.21l8.16-8.06c.88-.87 2.3-.87 3.18 0 .88.87.88 2.28 0 3.14L12 19.5z">
-          </path>
-        </svg>
-      </a>
-    </h5>
+  <!-- ! section 1 start -->
+  <div class="container-fluid section1">
+    <div class="row d-flex text-center p-2 mt-1">
+      <h5>
+        <a href="#section1" style="text-decoration: none; color: black;font-size: .9rem;">
+          Bu, şu şekilde işler <svg class="gUZ R19 U9O kVc" height="12" width="12" viewBox="0 0 24 24"
+            aria-label="arrow down icon" role="img">
+            <path
+              d="M12 19.5.66 8.29c-.88-.86-.88-2.27 0-3.14.88-.87 2.3-.87 3.18 0L12 13.21l8.16-8.06c.88-.87 2.3-.87 3.18 0 .88.87.88 2.28 0 3.14L12 19.5z">
+            </path>
+          </svg>
+        </a>
+      </h5>
+    </div>
+
+    <div class="row d-flex justify-content-evenly" id="section1">
+      <div class="col-5 section1_left d-flex justify-content-center align-items-center my-auto" style="height: 100vh;">
+        <div>
+          <a href="#">
+            <img src="{% static 'img/section1.png' %}" alt="">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-5 explain section1_right d-flex justify-content-center align-items-center text-center my-auto"
+        style="height: 100vh;">
+        <div>
+          <h1 class="fw-bold text-danger fa-4x">Bir fikir arayın</h1>
+          <p class="text-danger fa-2x">Şimdi ne denemek istersiniz? "Kolay tavuk yemeği" gibi ilgilendiğiniz bir şey
+            düşünün ve neler bulacağınıza bakın.</p>
+          <button class="rounded-2" style="color: #FFFD92; background-color: #e71334;">Keşfet</button>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- ! section 1 end -->
 
-  <div class="row d-flex justify-content-evenly" id="section1">
-    <div class="col-5 section1_left d-flex justify-content-center align-items-center my-auto" style="height: 100vh;">
-      <div>
+  <!-- ! section 2 start  -->
+  <div class="container-fluid section2">
+    <div class="row d-flex justify-content-evenly">
+      <div class="col-5 d-flex justify-content-center align-items-center section2_left explain" style="height: 100vh;">
+        <div class="text-center">
+          <h1 class="fw-bold fa-4x">Beğendiğiniz fikirleri kaydedin</h1>
+          <p class="fa-2x">En beğendiğiniz fikirleri daha sonra dönmek için kaydedin.</p>
+          <button class="rounded-2" style="color: #DAFFF6; background-color: #016B6C;">Keşfet</button>
+        </div>
+      </div>
+
+      <div class="col-5 d-flex justify-content-center align-items-center section2_right" style="height: 100vh;">
         <a href="#">
-          <img src="{% static 'img/section1.png' %}" alt="">
+          <img src="{% static 'img/section2.png' %}" alt="">
         </a>
       </div>
     </div>
+  </div>
+  <!-- ! section 2 end  -->
 
-    <div class="col-5 explain section1_right d-flex justify-content-center align-items-center text-center my-auto"
-      style="height: 100vh;">
-      <div>
-        <h1 class="fw-bold text-danger fa-4x">Bir fikir arayın</h1>
-        <p class="text-danger fa-2x">Şimdi ne denemek istersiniz? "Kolay tavuk yemeği" gibi ilgilendiğiniz bir şey
-          düşünün ve neler bulacağınıza bakın.</p>
-        <button class="rounded-2" style="color: #FFFD92; background-color: #e71334;">Keşfet</button>
+  <!-- ! section 3 start -->
+  <div class="container-fluid section3">
+    <div class="row" id="section3">
+      <div class="col-6 section1_left p-0" style="height: 100vh;">
+        <a href="#">
+          <img src="{% static 'img/section3.png' %}" alt="" style="height: 100vh; width: 100%;">
+        </a>
+      </div>
+
+      <div class="col-6 section1_right explain d-flex justify-content-center align-items-center text-center my-auto"
+        style="height: 100vh;">
+        <div class="col-8">
+          <h1 class="fw-bold text-danger fa-4x">Gör, üret, dene, yap</h1>
+          <p class="text-danger fa-2x">Pinterest'in en iyi yanı dünyanın her yerindeki kullanıcılardan yeni şeyler ve
+            fikirler keşfetmek.</p>
+          <button class="rounded-2" style="color: #FFE2EB; background-color: #e71334;">Keşfet</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- ! section 1 end -->
+  <!-- ! section 3 end -->
 
-<!-- ! section 2 start  -->
-<div class="container-fluid section2">
-  <div class="row d-flex justify-content-evenly">
-    <div class="col-5 d-flex justify-content-center align-items-center section2_left explain" style="height: 100vh;">
-      <div class="text-center">
-        <h1 class="fw-bold fa-4x">Beğendiğiniz fikirleri kaydedin</h1>
-        <p class="fa-2x">En beğendiğiniz fikirleri daha sonra dönmek için kaydedin.</p>
-        <button class="rounded-2" style="color: #DAFFF6; background-color: #016B6C;">Keşfet</button>
+  <!-- ! section 4 start -->
+  <div class="container-fluid section4">
+    <div class="row justify-content-evenly">
+      <div class="col-4 d-flex h-100 explain justify-content-center align-items-center text-center text-white">
+        <h1 class="fa-4x text-start ms-5" style="margin-top: 30%;">Fikirlerinizi bulmak için kaydolun.</h1>
       </div>
-    </div>
-
-    <div class="col-5 d-flex justify-content-center align-items-center section2_right" style="height: 100vh;">
-      <a href="#">
-        <img src="{% static 'img/section2.png' %}" alt="">
-      </a>
-    </div>
-  </div>
-</div>
-<!-- ! section 2 end  -->
-
-<!-- ! section 3 start -->
-<div class="container-fluid section3">
-  <div class="row" id="section3">
-    <div class="col-6 section1_left p-0" style="height: 100vh;">
-      <a href="#">
-        <img src="{% static 'img/section3.png' %}" alt="" style="height: 100vh; width: 100%;">
-      </a>
-    </div>
-
-    <div class="col-6 section1_right explain d-flex justify-content-center align-items-center text-center my-auto"
-      style="height: 100vh;">
-      <div class="col-8">
-        <h1 class="fw-bold text-danger fa-4x">Gör, üret, dene, yap</h1>
-        <p class="text-danger fa-2x">Pinterest'in en iyi yanı dünyanın her yerindeki kullanıcılardan yeni şeyler ve
-          fikirler keşfetmek.</p>
-        <button class="rounded-2" style="color: #FFE2EB; background-color: #e71334;">Keşfet</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ! section 3 end -->
-
-<!-- ! section 4 start -->
-<div class="container-fluid section4">
-  <div class="row justify-content-evenly">
-    <div class="col-4 d-flex h-100 explain justify-content-center align-items-center text-center text-white">
-      <h1 class="fa-4x text-start ms-5" style="margin-top: 30%;">Fikirlerinizi bulmak için kaydolun.</h1>
-    </div>
-    <div class="col-4 bg-light rounded-5" style="height: 100vh;">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-12">
-            <div class="modal-header text-center ">
-              <div class="w-100 me-auto mt-3">
-                <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34">
+      <div class="col-4 bg-light rounded-5" style="height: 100vh;">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12">
+              <div class="modal-header text-center ">
+                <div class="w-100 me-auto mt-3">
+                  <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34">
+                </div>
               </div>
-            </div>
-            <div class="w-100 text-center">
-              <h3 class="modal-title fa-2x" id="exampleModalLabel">
-                Pinterest'e Hoş Geldiniz
-              </h3>
-            </div>
-            <div class="modal-body">
-              <div class="container">
-                <div class="row d-flex justify-content-center">
-                  <div class="col-10">
-                    <form action="" method="POST" name="loginBtn">
-                      <!-- ! form bölümü -->
-                      {% csrf_token %}
-                      <label class="text-start" for="email">E-posta</label>
-                      <input class="w-100 rounded-4 form-control" id="email" type="text" name="email">
-                      <label class="text-start mt-2" for="password">Parola</label>
-                      <input class="w-100 rounded-4 form-control" id="password" type="text" name="password">
-                      <label class="text-start mt-2" for="birthday">Doğum Tarihi</label>
-                      <input class="w-100 rounded-4 form-control" id="birthday" type="date" name="password">
-                      <button class="w-100 btn mt-2 rounded-4 btn-danger" type="submit">Devam Et</button>
-                    </form>
-                    <h6 class="text-center my-2">VEYA</h6>
-                    <button class="w-100 btn mt-2 btn-primary rounded-4" type="submit">Facebook ile Devam
-                      Et</button>
-                    <button class="w-100 btn mt-2 btn-light rounded-4" type="submit">Google Hesabın ile Devam
-                      Et</button>
-                    <p class="text-center mt-3" style="font-size: 10px;">Devam ederek Pinterest'in <a
-                        class="text-decoration-none text-black" href=""><b>Hizmet Şartları</b></a>; Yeni bir
-                      sekme açar koşullarını kabul etmiş ve <a class="text-decoration-none text-black"
-                        href=""><b>Gizlilik Politikası</b></a>; Yeni bir sekme açar metnini okuduğunuzu
-                      onaylamış olursunuz. <a class="text-decoration-none text-black" href=""><b>Veri toplama
-                          bildirimi</b></a>.</p>
+              <div class="w-100 text-center">
+                <h3 class="modal-title fa-2x" id="exampleModalLabel">
+                  Pinterest'e Hoş Geldiniz
+                </h3>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-10">
+                      <form action="" method="POST" name="loginBtn">
+                        <!-- ! form bölümü -->
+                        {% csrf_token %}
+                        <label class="text-start" for="email">E-posta</label>
+                        <input class="w-100 rounded-4 form-control" id="email" type="text" name="email">
+                        <label class="text-start mt-2" for="password">Parola</label>
+                        <input class="w-100 rounded-4 form-control" id="password" type="text" name="password">
+                        <label class="text-start mt-2" for="birthday">Doğum Tarihi</label>
+                        <input class="w-100 rounded-4 form-control" id="birthday" type="date" name="password">
+                        <button class="w-100 btn mt-2 rounded-4 btn-danger" type="submit">Devam Et</button>
+                      </form>
+                      <h6 class="text-center my-2">VEYA</h6>
+                      <button class="w-100 btn mt-2 btn-primary rounded-4" type="submit">Facebook ile Devam
+                        Et</button>
+                      <button class="w-100 btn mt-2 btn-light rounded-4" type="submit">Google Hesabın ile Devam
+                        Et</button>
+                      <p class="text-center mt-3" style="font-size: 10px;">Devam ederek Pinterest'in <a
+                          class="text-decoration-none text-black" href=""><b>Hizmet Şartları</b></a>; Yeni bir
+                        sekme açar koşullarını kabul etmiş ve <a class="text-decoration-none text-black"
+                          href=""><b>Gizlilik Politikası</b></a>; Yeni bir sekme açar metnini okuduğunuzu
+                        onaylamış olursunuz. <a class="text-decoration-none text-black" href=""><b>Veri toplama
+                            bildirimi</b></a>.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
+      <footer style="width: 100%; background-color: white; height: 5vh;" class="p-1">
+        <ul class="d-flex justify-content-center">
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Hizmet Şartları</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Gizlilik Politikası</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Yardım</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">iPhone Uygulaması </a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Android Uygulaması</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Kullanıcılar</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Koleksiyon</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Alışveriş</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Bugün</a></li>
+          <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Keşfet</a></li>
+        </ul>
+      </footer>
     </div>
-    <footer style="width: 100%; background-color: white; height: 5vh;" class="p-1">
-      <ul class="d-flex justify-content-center">
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Hizmet Şartları</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Gizlilik Politikası</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Yardım</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">iPhone Uygulaması </a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Android Uygulaması</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Kullanıcılar</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Koleksiyon</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Alışveriş</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Bugün</a></li>
-        <li><a class="text-black text-decoration-none me-2 fw-bold" href="">Keşfet</a></li>
-      </ul>
-    </footer>
   </div>
-</div>
-<!-- ! section 4 end -->
+  <!-- ! section 4 end -->
+</span>
+
+
+<!-- ? kullanıcı girişliyse -->
+<span id="user" style="display: block;">
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="{% static 'img/001.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section1.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section2.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section1.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section3.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section1.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/001.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section3.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section1.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section2.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/001.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section3.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section1.png' %}" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="{% static 'img/section2.png' %}" alt="">
+    </div>
+
+  </div>
+</span>
+
+
 
 {% endblock main %}
 
@@ -1627,6 +1706,8 @@
 
 {% block js %}
 <script>
+
+  // slider bölümü
   const grids = document.querySelectorAll('.grid')
   const headings = document.querySelectorAll('.heading .wrapper .text')
 
@@ -1683,5 +1764,50 @@
     timePerScreen: 3000, // ms
     exitDelay: 200 * 7 // ms
   })
+
+
+    // grid yapısı
+    // Isotope'u kullanarak galeri düzenlemesini gerçekleştiriyoruz
+    // var gallery = document.getElementsByClassName('gallery-container');
+    // var iso = new Isotope(gallery, {
+    //   itemSelector: '.gallery-item',
+    //   percentPosition: true,
+    //   masonry: {
+    //     columnWidth: '.gallery-item',
+    //     columnHeight: '.gallery-item',
+    //     gutter: 10,
+    //   }
+    // });
+
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   var grid = document.querySelector(".gallery-container");
+  //   var items = Array.from(document.querySelectorAll(".gallery-item"));
+
+  //   function applyIsotopeLayout() {
+  //     var columnWidth = items[0].offsetWidth + 20; // Sütun genişliği, ilk item'ın genişliğiyle aynı olacak (20px boşluk ekledik)
+  //     var numCols = Math.floor(grid.offsetWidth / columnWidth);
+  //     grid.style.gridTemplateColumns = "repeat(" + numCols + ", 1fr)";
+  //   }
+
+  //   function onResize() {
+  //     applyIsotopeLayout();
+  //   }
+
+  //   // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde Isotope layout'u uygulayın
+  //   applyIsotopeLayout();
+  //   window.addEventListener("resize", onResize);
+  // });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var elem = document.querySelector('.grid');
+    var iso = new Isotope( elem, {
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
+  });
+
+
+
 </script>
+
 {% endblock js %}
