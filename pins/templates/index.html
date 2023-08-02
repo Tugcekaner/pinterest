@@ -1049,25 +1049,68 @@
   }
 
   /* Grid container */
-  .gallery-container {
+  /* .gallery-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-    /* Sütun ve satırlar arasındaki boşluk */
   }
 
-  /* Item'lar */
-  .gallery-item {
-    width: 100%;
-  }
-
-  /* Item içerikleri (örneğin, resimler) */
   .gallery-item img {
     width: 100%;
-    display: block;
     border-radius: 8px;
-    height: auto;
-}
+  } */
+
+  #photos {
+    line-height: 0;
+    -webkit-column-count: 5;
+    -webkit-column-gap: 0px;
+    -moz-column-count: 5;
+    -moz-column-gap: 0px;
+    column-count: 5;
+    column-gap: 0px;
+  }
+
+  #photos img {
+    width: 100% !important;
+    object-fit: cover;
+  }
+
+  .items {
+    margin: 1rem;
+  }
+
+
+  @media (max-width: 1200px) {
+    #photos {
+      -moz-column-count: 4;
+      -webkit-column-count: 4;
+      column-count: 4;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    #photos {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #photos {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #photos {
+      -moz-column-count: 1;
+      -webkit-column-count: 1;
+      column-count: 1;
+    }
+  }
 </style>
 {% endblock style %}
 
@@ -1650,49 +1693,21 @@
 
 <!-- ? kullanıcı girişliyse -->
 <span id="user" style="display: block;">
-  <div class="gallery-container">
-    <div class="gallery-item">
-      <img src="{% static 'img/001.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section1.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section2.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section1.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section3.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section1.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/001.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section3.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section1.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section2.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/001.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section3.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section1.png' %}" alt="">
-    </div>
-    <div class="gallery-item">
-      <img src="{% static 'img/section2.png' %}" alt="">
-    </div>
+  <div class="gallery-container mx-3">
+    <section id="photos">
+
+      {% for i in images %}
+      <!-- <div class="gallery-item ">
+        <img class="w-100" src="{{ i.image.url }}" alt="">
+      </div>
+ -->
+      <div class="items">
+        <img class="testImg" src="{{ i.image.url }}" alt="{{ i.image.title }}">
+      </div>
+
+
+      {% endfor %}
+    </section>
 
   </div>
 </span>
@@ -1705,6 +1720,7 @@
 
 
 {% block js %}
+
 <script>
 
   // slider bölümü
@@ -1765,46 +1781,21 @@
     exitDelay: 200 * 7 // ms
   })
 
+  // grid yapısı
+  function getRandomSize(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
 
-    // grid yapısı
-    // Isotope'u kullanarak galeri düzenlemesini gerçekleştiriyoruz
-    // var gallery = document.getElementsByClassName('gallery-container');
-    // var iso = new Isotope(gallery, {
-    //   itemSelector: '.gallery-item',
-    //   percentPosition: true,
-    //   masonry: {
-    //     columnWidth: '.gallery-item',
-    //     columnHeight: '.gallery-item',
-    //     gutter: 10,
-    //   }
-    // });
+  var allImages = "";
+  let testImg = document.querySelectorAll(".testImg")
+  for (var i = 0; i < testImg.length; i++) {
+    var width = getRandomSize(200, 400);
+    var height = getRandomSize(200, 600);
+    testImg[i].style.width = `${width}px`
+    testImg[i].style.height = `${height}px`
+    //allImages += '<img src="https://placekitten.com/' + width + '/' + height + '" alt="pretty kitty">';
+  }
 
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   var grid = document.querySelector(".gallery-container");
-  //   var items = Array.from(document.querySelectorAll(".gallery-item"));
-
-  //   function applyIsotopeLayout() {
-  //     var columnWidth = items[0].offsetWidth + 20; // Sütun genişliği, ilk item'ın genişliğiyle aynı olacak (20px boşluk ekledik)
-  //     var numCols = Math.floor(grid.offsetWidth / columnWidth);
-  //     grid.style.gridTemplateColumns = "repeat(" + numCols + ", 1fr)";
-  //   }
-
-  //   function onResize() {
-  //     applyIsotopeLayout();
-  //   }
-
-  //   // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde Isotope layout'u uygulayın
-  //   applyIsotopeLayout();
-  //   window.addEventListener("resize", onResize);
-  // });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    var elem = document.querySelector('.grid');
-    var iso = new Isotope( elem, {
-      itemSelector: '.grid-item',
-      layoutMode: 'fitRows'
-    });
-  });
 
 
 
