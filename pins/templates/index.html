@@ -25,7 +25,7 @@
   }
 
   .navbar a:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
 
   .animate-before {
@@ -1049,17 +1049,6 @@
   }
 
   /* Grid container */
-  /* .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    border-radius: 8px;
-  } */
-
   #photos {
     line-height: 0;
     -webkit-column-count: 5;
@@ -1077,7 +1066,44 @@
 
   .items {
     margin: 1rem;
+    position: relative;
   }
+
+  .save-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  display: none;
+}
+
+.save-button-group {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+.download-button {
+  background-color: white;
+  border: none;
+}
+
+.items:hover .save-button, .items:hover .save-button-group {
+  display: block;
+}
+
+.items:hover .testImg {
+  opacity: .6;
+}
+
+.text-decoration-none-a:hover{
+    text-decoration: none!important;
+  }
+
 
 
   @media (max-width: 1200px) {
@@ -1115,13 +1141,12 @@
 {% endblock style %}
 
 
-<!-- <img src="{% static 'img/pinterest_logo.png' %}" alt=""> -->
 {% block main %}
 
 <!-- ! Navbar start -->
 <nav class="navbar navbar-expand-lg border-0">
   <div class="container-fluid mx-3">
-    <a class="navbar-brand fw-medium" href="{% url 'index' %}" style="color: #e71334;">
+    <a class="navbar-brand fw-medium text-decoration-none-a" href="{% url 'index' %}" style="color: #e71334;">
       <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34"
         class="d-inline-block align-text-center">
       Pinterest
@@ -1695,20 +1720,31 @@
 <span id="user" style="display: block;">
   <div class="gallery-container mx-3">
     <section id="photos">
-
+      
       {% for i in images %}
-      <!-- <div class="gallery-item ">
-        <img class="w-100" src="{{ i.image.url }}" alt="">
-      </div>
- -->
       <div class="items">
-        <img class="testImg" src="{{ i.image.url }}" alt="{{ i.image.title }}">
+        <a href="">
+          <img class="testImg" style="border-radius: 20px;" src="{{ i.image.url }}" alt="{{ i.title }}">
+          <button class="save-button btn btn-danger">Kaydet</button>
+          <div class="btn-group dropup save-button-group">
+            <a href="#" class="btn btn-light rounded-2 ">
+              paylaş
+            </a>
+            <button type="button" class="btn rounded-2 btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ...
+            </button>
+            <div class="dropdown-menu p-2 w-auto">
+              <a class="dropdown-item btn" href="#"><b>Pini Gizle</b></a>
+              <a class="dropdown-item btn" href="#"><b>Görüntüyü İndir</b></a>
+              <a class="dropdown-item btn" href="#"><b>Pini şikayet Et</b></a>
+            </div>
+          </div>
+        </a>
       </div>
 
 
       {% endfor %}
     </section>
-
   </div>
 </span>
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from user.models import *
 
 # Create your views here.
 
