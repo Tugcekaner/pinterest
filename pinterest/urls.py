@@ -24,6 +24,8 @@ from user.views import *
 urlpatterns = [
     # pins
     path('',indexPage, name='index'),
+    path('pinBuilder/',pinBuilder, name='pinBuilder'),
     # user
     path('admin/', admin.site.urls),
+    path('logout',logoutUser,name='logout'),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

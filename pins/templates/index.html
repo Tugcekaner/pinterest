@@ -1145,257 +1145,6 @@
 
 {% block main %}
 
-<!-- ! Navbar start -->
-<nav class="navbar navbar-expand-lg border-0">
-  <div class="container-fluid mx-3">
-
-    {% if request.user.is_authenticated %}
-
-    <a class="navbar-brand fw-medium text-decoration-none-a" href="{% url 'index' %}" style="color: #e71334;">
-      <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34"
-        class="d-inline-block align-text-center">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item ms-1">
-          <a class="nav-link fw-medium text-dark" aria-current="page" href="#">AnaSayfa</a>
-        </li>
-        <li class="nav-item ms-1">
-          <a class="nav-link fw-medium text-dark btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Oluştur</a>
-          <div class="dropdown">
-            <ul class="dropdown-menu">
-              <!-- ! pin oluşturma bölümleri -->
-              <li><a class="dropdown-item" href="#">Fikir Pini Oluştur</a></li>
-              <li><a class="dropdown-item" href="#">Pin Oluştur</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <form class="d-flex me-3" style="width: 70%;" role="search">
-      <input class="form-control me-2"  type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-danger" type="submit">Search</button>
-    </form>
-    <div class="btn-group me-2" role="group" aria-label="Button group with nested dropdown">
-      <button type="button" class="btn me-2 btn-light rounded-5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-      </svg></button>
-      <button type="button" class="btn me-2 btn-light rounded-5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-        <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-        <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
-      </svg></button>
-      <button type="button" class="btn me-2 btn-light rounded-5"><a href="#" style="color: black; text-decoration: none;">{{ user.username.0|upper }}</a></button>
-    
-      <div class="btn-group dropstart " role="group">
-        <button type="button" class="btn btn-light dropdown-toggle rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    
-    {% else %}
-    <a class="navbar-brand fw-medium text-decoration-none-a" href="{% url 'index' %}" style="color: #e71334;">
-      <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34"
-        class="d-inline-block align-text-center">
-      Pinterest
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item ms-3">
-          <a class="nav-link fw-medium text-dark " aria-current="page" href="#">Hakkında</a>
-        </li>
-        <li class="nav-item ms-3">
-          <a class="nav-link fw-medium text-dark" href="#">İş
-            Dünyası</a>
-        </li>
-        <li class="nav-item ms-3">
-          <a class="nav-link fw-medium text-dark" href="#">Blog</a>
-        </li>
-      </ul>
-
-      <div class="buttons">
-        <!-- ! login button start -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Oturum Aç
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="container">
-                <div class="row d-flex justify-content-center">
-                  <div class="col-11">
-                    <div class="w-100 d-flex justify-content-end mt-2">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-header text-center ">
-                      <div class="w-100 me-auto">
-                        <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34">
-                      </div>
-                    </div>
-                    <div class="w-100 text-center">
-                      <h3 class="modal-title fa-2x" id="exampleModalLabel">
-                        Pinterest'e Hoş Geldiniz
-                      </h3>
-                    </div>
-                    <div class="modal-body">
-                      <div class="container">
-                        <div class="row d-flex justify-content-center">
-                          <div class="col-10">
-                            <form action="" method="POST" name="login_submit">
-                              <!-- ! form bölümü -->
-                              {% csrf_token %}
-                              <label class="text-start" for="username">Kullanıcı Adı</label>
-                              <input class="w-100 rounded-4 form-control" id="username" type="text" name="username">
-
-                              <!-- <label class="text-start" for="email">E-posta</label>
-                              <input class="w-100 rounded-4 form-control" id="email" type="text" name="email"> -->
-                              <label class="text-start mt-2" for="password">Parola</label>
-                              <input class="w-100 rounded-4 form-control" id="password" type="password" name="password">
-                              <a class="text-decoration-none text-black" href="">Parolanızı mı unuttunuz?</a>
-                              <button class="w-100 btn mt-2 rounded-4 btn-danger" type="submit"
-                                name="login_submit">Oturum Aç</button>
-
-
-                            </form>
-                            <h6 class="text-center my-2">VEYA</h6>
-                            <button class="w-100 btn mt-2 btn-primary rounded-4" type="submit">Facebook ile Devam
-                              Et</button>
-                            <button class="w-100 btn mt-2 btn-light rounded-4" type="submit">Google Hesabın ile Devam
-                              Et</button>
-                            <p class="text-center mt-3" style="font-size: 10px;">Devam ederek Pinterest'in <a
-                                class="text-decoration-none text-black" href=""><b>Hizmet Şartları</b></a>koşullarını kabul etmiş ve <a class="text-decoration-none text-black"
-                                href=""><b>Gizlilik Politikası</b></a>metnini okuduğunuzu
-                              onaylamış olursunuz. <a class="text-decoration-none text-black" href=""><b>Veri toplama
-                                  bildirimi</b></a>.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <div class="container">
-                        <div class="row d-flex justify-content-center">
-                          <div class="col-10 text-center">
-                            <a style="font-size: 12px;" class="text-decoration-none text-black" href=""><b>Hala
-                                Pinterest'te değil misiniz?
-                                Kaydolun</b></a>
-                            <p style="font-size: 12px;">İşletme misiniz?
-                              <a class="text-decoration-none text-black" href=""><b>Buradan başlayın!</b></a>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- ! login button end -->
-
-        <!-- ! register button start -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-light ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-          Kaydol
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="container">
-                <div class="row d-flex justify-content-center">
-                  <div class="col-11">
-                    <div class="w-100 d-flex justify-content-end mt-2">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-header text-center ">
-                      <div class="w-100 me-auto">
-                        <img src="{% static 'img/pinterest_logo.png' %}" alt="Logo" width="34" height="34">
-                      </div>
-                    </div>
-                    <div class="w-100 text-center">
-                      <h3 class="modal-title fa-2x" id="exampleModalLabel">
-                        Pinterest'e Hoş Geldiniz
-                      </h3>
-                      <h6 class="fw-light">Bir sonraki tutkunuzu keşfedin.</h6>
-                    </div>
-                    <div class="modal-body">
-                      <div class="container">
-                        <div class="row d-flex justify-content-center">
-                          <div class="col-10">
-                            <form action="" method="POST" name="register_submit">
-                              <!-- ! form bölümü -->
-                              {% csrf_token %}
-                              <label class="text-start" for="username">Kullanıcı Adı</label>
-                              <input class="w-100 rounded-4 form-control" id="username" type="text" name="username">
-                              <label class="text-start" for="email">E-posta</label>
-                              <input class="w-100 rounded-4 form-control" id="email" type="text" name="email">
-                              <label class="text-start mt-2" for="password1">Parola</label>
-                              <input class="w-100 rounded-4 form-control" id="password1" type="password" name="password1">
-                              <label class="text-start mt-2" for="password2">Parola Tekrar</label>
-                              <input class="w-100 rounded-4 form-control" id="password2" type="password" name="password2">
-                              <button name="register_submit" class="w-100 btn mt-2 rounded-4 btn-danger" type="submit">Devam Et</button>
-                            </form>
-
-                            <h6 class="text-center my-2">VEYA</h6>
-                            <button class="w-100 btn mt-2 btn-primary rounded-4">Facebook ile Devam
-                              Et</button>
-                            <button class="w-100 btn mt-2 btn-light rounded-4">Google Hesabın ile Devam
-                              Et</button>
-                            <p class="text-center mt-3" style="font-size: 10px;">Devam ederek Pinterest'in <a
-                                class="text-decoration-none text-black" href=""><b>Hizmet Şartları</b></a>; Yeni bir
-                              sekme açar koşullarını kabul etmiş ve <a class="text-decoration-none text-black"
-                                href=""><b>Gizlilik Politikası</b></a>; Yeni bir sekme açar metnini okuduğunuzu
-                              onaylamış olursunuz. <a class="text-decoration-none text-black" href=""><b>Veri toplama
-                                  bildirimi</b></a>.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <div class="container">
-                        <div class="row d-flex justify-content-center">
-                          <div class="col-10 text-center">
-                            <p style="font-size: 12px;">Zaten Üye misiniz?
-                              <a class="text-decoration-none text-black" href=""><b>Oturum Aç</b></a>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- ! register button end -->
-
-      </div>
-
-    </div>
-
-
-    {% endif %}
-      
-  </div>
-</nav>
-<!-- ! Navbar end -->
-
 
 <!-- ? kullanıcı girişliyse -->
 {% if request.user.is_authenticated %}
@@ -1773,17 +1522,19 @@
                 <div class="container">
                   <div class="row d-flex justify-content-center">
                     <div class="col-10">
-                      <form action="" method="POST" name="loginBtn">
+                      <form action="" method="POST" name="register_footer">
                         <!-- ! form bölümü -->
                         {% csrf_token %}
+                        <label class="text-start" for="username">Kullanıcı Adı</label>
+                        <input class="w-100 rounded-4 form-control" id="username" type="text" name="username">
                         <label class="text-start" for="email">E-posta</label>
                         <input class="w-100 rounded-4 form-control" id="email" type="text" name="email">
-                        <label class="text-start mt-2" for="password">Parola</label>
-                        <input class="w-100 rounded-4 form-control" id="password" type="text" name="password">
-                        <label class="text-start mt-2" for="birthday">Doğum Tarihi</label>
-                        <input class="w-100 rounded-4 form-control" id="birthday" type="date" name="password">
-                        <button class="w-100 btn mt-2 rounded-4 btn-danger" type="submit">Devam Et</button>
-                      </form>
+                        <label class="text-start mt-2" for="password1">Parola</label>
+                        <input class="w-100 rounded-4 form-control" id="password1" type="password" name="password1">
+                        <label class="text-start mt-2" for="password2">Parola Tekrar</label>
+                        <input class="w-100 rounded-4 form-control" id="password2" type="password" name="password2">
+                        <button name="register_footer" class="w-100 btn mt-2 rounded-4 btn-danger" type="submit">Devam Et</button>
+                </form>
                       <h6 class="text-center my-2">VEYA</h6>
                       <button class="w-100 btn mt-2 btn-primary rounded-4" type="submit">Facebook ile Devam
                         Et</button>
@@ -1824,8 +1575,6 @@
 </span>
 
 {% endif %}
-
-
 
 
 
@@ -1906,7 +1655,6 @@
     var height = getRandomSize(200, 600);
     testImg[i].style.width = `${width}px`
     testImg[i].style.height = `${height}px`
-    //allImages += '<img src="https://placekitten.com/' + width + '/' + height + '" alt="pretty kitty">';
   }
 
 

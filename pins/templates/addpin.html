@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+<title>Pinterest</title>
+{% endblock title %}
+
+
+{% block style %}
+<style>
+.addpin{
+    background-color: #E9E9E9;
+}
+.pinForm input{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.yenipanoinputu{
+    display: none;
+}
+</style>
+{% endblock style %}
+
+
+{% block main %}
+<section class="addpin ">
+    <div class="container ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9 col-11 bg-white my-5 rounded-4">
+                <form action="{% url 'pinBuilder' %}" method="POST" class="p-5 pinForm">
+                    {% csrf_token %}
+                    <span class="d-flex justify-content-between">
+                        <span class="d-flex">
+                        <button type="button" class="btn me-2 btn-light rounded-5"><a href="#" style="color: black; text-decoration: none;">{{ user.username.0|upper }}</a></button>
+                        <h3 class="text-black">{{ request.user.username|upper }}</h3>
+                        </span>
+                        <button class="btn-danger btn rounded-2 " type="submit">Kaydet</button>
+                    </span>
+                    <br>
+                    <label class="mt-2" for="yenipano">Pano : </label>
+                    <select name="pano" id="panoSelect" >
+                        {% for i in panolar  %}
+                        <option value="{{ i.title }}">{{ i.title }}</option>
+                        {% endfor %}
+                        <option value="yeniPano">Yeni Pano</option>
+                    </select>
+                    <br>
+                    <span class="yenipanoinputu">
+                        <input type="text" name="yenipano" id="yenipano" placeholder="pano adını giriniz">
+                    </span>
+                    <hr>
+                    <label for="image">Dosya yükleyiniz : </label>
+                    <input type="file" name="dosya" name="image" id="image">
+                    <hr>
+                    <label for="title">Pin başlığı :</label>
+                    <input class="rounded-2" type="text" name="title" id="title">
+                    <hr>
+                    <label for="text">Pin açıklamanız :</label>
+                    <input class="rounded-2" type="text" name="text" id="text">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+{% endblock main %}
+
+
+
+
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var panoSelect = document.getElementById('panoSelect');
+        var yeniPanoInput = document.querySelector('.yenipanoinputu');
+
+        panoSelect.addEventListener('change', function() {
+            if (panoSelect.value === 'yeniPano') {
+                yeniPanoInput.style.display = 'block';
+            } else {
+                yeniPanoInput.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+{% endblock js %}
