@@ -47,8 +47,8 @@ class Pano(models.Model):
 class Pin(models.Model):
     user = models.ForeignKey(User, verbose_name=(
         "Kullanıcı"), on_delete=models.CASCADE)
-    pintype = models.ForeignKey(Pintype, verbose_name=(
-        "Kategori"), on_delete=models.CASCADE,null=True, default='pin')
+    # pintype = models.ForeignKey(Pintype, verbose_name=(
+    #     "Kategori"), on_delete=models.CASCADE,null=True, default='pin')
     pano = models.ForeignKey(Pano, verbose_name=(
         "Pano"), on_delete=models.CASCADE,null=True)
     title = models.CharField(("Pin adı"), max_length=50)

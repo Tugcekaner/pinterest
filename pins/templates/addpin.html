@@ -41,7 +41,7 @@
                     </span>
                     <br>
                     <label class="mt-2" for="yenipano">Pano : </label>
-                    <select name="pano" id="panoSelect" >
+                    <select name="panoSelect" id="panoSelect" >
                         {% for i in panolar  %}
                         <option value="{{ i.title }}">{{ i.title }}</option>
                         {% endfor %}
@@ -53,7 +53,7 @@
                     </span>
                     <hr>
                     <label for="image">Dosya yükleyiniz : </label>
-                    <input type="file" name="dosya" name="image" id="image">
+                    <input type="file"  name="image" id="image">
                     <hr>
                     <label for="title">Pin başlığı :</label>
                     <input class="rounded-2" type="text" name="title" id="title">

@@ -77,7 +77,7 @@ def pinBuilder(request):
      panolar=Pano.objects.filter(user=request.user)
 
      if request.method == 'POST':
-          pano = request.POST.get('pano')
+          pano = request.POST.get('panoSelect')
           image = request.FILES.get('image')
           title = request.POST.get('title')
           text = request.POST.get('text')
@@ -103,6 +103,8 @@ def pinBuilder(request):
                text=text,
           )
 
+          print("---------------------------------------------------------------------------------------------")
+          print(pin)
           pin.save()
           return redirect('index')
 
